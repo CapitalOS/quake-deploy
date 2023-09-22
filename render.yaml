@@ -1,0 +1,42 @@
+services:
+  - type: pserv
+    name: quake-mongodb
+    plan: starter
+    runtime: image
+    region: ohio
+    image:
+      url: docker.io/mongo/mongo:6
+    autoDeploy: false
+    disk:
+      name: data
+      mountPath: /data/db
+      sizeGB: 10
+    envVars:
+      - key: MONGO_INITDB_ROOT_USERNAME
+        value: root
+      - name: MONGO_INITDB_ROOT_PASSWORD
+        sync: false
+    
+  - type: redis
+    name: quake-redis
+    plan: starter
+    region: ohio
+
+  - type: web
+    name: quake
+    plan: standard
+    runtime: image
+    region: ohio
+    image:
+      url: docker.io/appsmith/appsmith-ce:latest
+    envVars:
+      - key: APPSMITH_ENCRYPTION_SALT
+        sync: false
+      - key: APPSMITH_ENCRYPTION_PASSWORD
+        sync: false
+      - key: APPSMITH_ENABLE_EMBEDDED_DB
+        value: 0
+      - key: APPSMITH_SIGNUP_DISABLED
+        value: true
+      - key: APPSMITH_DISABLE_TELEMETRY
+        value: true
