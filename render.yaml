@@ -14,13 +14,14 @@ services:
     envVars:
       - key: MONGO_INITDB_ROOT_USERNAME
         value: root
-      - name: MONGO_INITDB_ROOT_PASSWORD
+      - key: MONGO_INITDB_ROOT_PASSWORD
         sync: false
     
   - type: redis
     name: quake-redis
     plan: starter
     region: ohio
+    ipAllowList: [] # only allow internal connections
 
   - type: web
     name: quake
