@@ -5,7 +5,7 @@ services:
     runtime: image
     region: ohio
     image:
-      url: docker.io/mongo:6
+      url: mongo:6
     autoDeploy: false
     disk:
       name: data
