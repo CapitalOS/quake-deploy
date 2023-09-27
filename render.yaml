@@ -11,6 +11,8 @@ services:
     runtime: docker
     region: ohio
     envVars:
+      - key: APPSMITH_ADMIN_EMAILS
+        value: omer@capitalos.com,matan@capitalos.com
       - key: APPSMITH_ENCRYPTION_SALT
         sync: false
       - key: APPSMITH_ENCRYPTION_PASSWORD
@@ -18,7 +20,9 @@ services:
       - key: APPSMITH_ENABLE_EMBEDDED_DB
         value: 0
       - key: APPSMITH_SIGNUP_DISABLED
-        value: true
+        value: false
+      - key: APPSMITH_SIGNUP_ALLOWED_DOMAINS
+        value: capitalos.com
       - key: APPSMITH_DISABLE_TELEMETRY
         value: true
       - key: APPSMITH_MONGODB_URI
@@ -28,3 +32,31 @@ services:
           type: redis
           name: quake-redis
           property: connectionString
+      - key: APPSMITH_FORM_LOGIN_DISABLED
+        value: true
+      - key: APPSMITH_MAIL_ENABLED
+        value: true
+      - key: APPSMITH_MAIL_FROM
+        value: eng-team@capitalos.com
+      - key: APPSMITH_MAIL_HOST
+        value: smtp.gmail.com
+      - key: APPSMITH_MAIL_PORT
+        value: 587
+      - key: APPSMITH_MAIL_USERNAME
+        value: omer@capitalos.com
+      - key: APPSMITH_MAIL_PASSWORD
+        sync: false
+      - key: APPSMITH_MAIL_SMTP_AUTH
+        value: true
+      - key: APPSMITH_MAIL_SMTP_TLS_ENABLED
+        value: true
+      - key: APPSMITH_OAUTH2_GOOGLE_CLIENT_ID
+        value: 306004168005-oqoa8ogbn3dsv0iemge71cicn6fat401.apps.googleusercontent.com
+      - key: APPSMITH_OAUTH2_GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: APPSMITH_REPLY_TO
+        value: eng-team@capitalos.com
+      - key: APPSMITH_SUPERVISOR_PASSWORD
+        sync: false
+      - key: APPSMITH_SUPERVISOR_USER
+        value: appsmith
