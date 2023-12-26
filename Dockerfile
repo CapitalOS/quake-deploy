@@ -1,4 +1,4 @@
-FROM appsmith/appsmith-ce:v1.9.57
+FROM appsmith/appsmith-ce:v1.9.50
 
 WORKDIR /opt/appsmith
 
